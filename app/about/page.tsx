@@ -66,7 +66,7 @@ export default function AboutPage() {
               </div>
               <div className="aspect-video overflow-hidden rounded-lg">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="EstateHub office"
                   width={600}
                   height={400}
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
                     <Image
-                      src="/placeholder.svg?height=128&width=128"
+                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
                       alt="CEO"
                       width={128}
                       height={128}
@@ -199,7 +199,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
                     <Image
-                      src="/placeholder.svg?height=128&width=128"
+                      src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fHVzZXJ8ZW58MHx8MHx8fDA%3D"
                       alt="COO"
                       width={128}
                       height={128}
@@ -216,7 +216,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
                     <Image
-                      src="/placeholder.svg?height=128&width=128"
+                      src="https://images.unsplash.com/photo-1615109398623-88346a601842?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
                       alt="Sales Director"
                       width={128}
                       height={128}
