@@ -35,8 +35,12 @@ export default function CareersPage() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2\
+        <div className="container px-4 py-8">
+          <h1 className="text-3xl font-bold mb-6">Careers at EstateHub</h1>
+          <p className="text-gray-600">Join our growing team and help shape the future of real estate.</p>
+        </div>
+      </main>
+    </div>
+  )
+}
 

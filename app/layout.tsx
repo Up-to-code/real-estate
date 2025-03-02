@@ -7,8 +7,8 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "EstateHub",
-  description: "Your trusted partner in real estate",
+  title: "EstateHub - Modern Real Estate Platform",
+  description: "Find your dream home with EstateHub - Your trusted real estate platform",
     generator: 'v0.dev'
 }
 
