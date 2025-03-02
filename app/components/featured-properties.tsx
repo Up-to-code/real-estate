@@ -9,7 +9,11 @@ export default function FeaturedProperties() {
           {/* Property Card 1 */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="aspect-video relative overflow-hidden rounded-t-lg">
-              <div className="h-full bg-muted" />
+              <img 
+                src="https://plus.unsplash.com/premium_photo-1661883964999-c1bcb57a7357"
+                alt="Luxury Villa"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="p-4">
               <h3 className="text-xl font-bold">Luxury Villa</h3>
