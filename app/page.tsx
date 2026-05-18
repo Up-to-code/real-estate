@@ -6,8 +6,11 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import FeaturedProperties from "@/components/featured-properties"
 import Testimonials from "@/components/testimonials"
+import LanguageSwitcher from "@/components/language-switcher"
+import { useI18n } from "@/lib/i18n"
  
 export default function Home() {
+  const { direction, t } = useI18n()
  
   return (
     <div className="flex flex-col min-h-screen">
@@ -18,32 +21,29 @@ export default function Home() {
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
+              {t.nav.home}
             </Link>
             <Link href="/properties" className="text-sm font-medium hover:underline underline-offset-4">
-              Properties
+              {t.nav.properties}
             </Link>
             <Link href="/agents" className="text-sm font-medium hover:underline underline-offset-4">
-              Agents
+              {t.nav.agents}
             </Link>
             <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
+              {t.nav.about}
             </Link>
             <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
+              {t.nav.contact}
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-   
-              <>
-                <Button variant="outline" size="sm" asChild>
-                  <Link href="/auth/signin">Sign In</Link>
-                </Button>
-                <Button size="sm" asChild>
-                  <Link href="/auth/signup">Sign Up</Link>
-                </Button>
-              </>
-             
+            <LanguageSwitcher />
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/auth/signin">{t.nav.signIn}</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link href="/auth/signup">{t.nav.signUp}</Link>
+            </Button>
           </div>
         </div>
       </header>
@@ -53,32 +53,32 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white drop-shadow-md">
-                  Find Your Dream Home
+                  {t.home.heroTitle}
                 </h1>
                 <p className="mx-auto max-w-[700px] text-white md:text-xl drop-shadow-md">
-                  Discover the perfect property that fits your lifestyle and budget.
+                  {t.home.heroSubtitle}
                 </p>
               </div>
               <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div className="md:col-span-2">
                     <div className="relative">
-                      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                      <Input type="text" placeholder="Location" className="pl-8" />
+                      <Search className={`absolute top-2.5 h-4 w-4 text-muted-foreground ${direction === "rtl" ? "right-2.5" : "left-2.5"}`} />
+                      <Input type="text" placeholder={t.home.locationPlaceholder} className={direction === "rtl" ? "pr-8" : "pl-8"} />
                     </div>
                   </div>
                   <Select>
                     <SelectTrigger>
-                      <SelectValue placeholder="Property Type" />
+                      <SelectValue placeholder={t.home.propertyType} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="house">House</SelectItem>
-                      <SelectItem value="apartment">Apartment</SelectItem>
-                      <SelectItem value="condo">Condo</SelectItem>
-                      <SelectItem value="townhouse">Townhouse</SelectItem>
+                      <SelectItem value="house">{t.home.house}</SelectItem>
+                      <SelectItem value="apartment">{t.home.apartment}</SelectItem>
+                      <SelectItem value="condo">{t.home.condo}</SelectItem>
+                      <SelectItem value="townhouse">{t.home.townhouse}</SelectItem>
                     </SelectContent>
                   </Select>
-                  <Button className="w-full">Search</Button>
+                  <Button className="w-full">{t.home.search}</Button>
                 </div>
               </div>
             </div>
@@ -89,12 +89,12 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Why Choose Us</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">{t.home.whyTitle}</h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  We provide exceptional service and expertise in real estate.
+                  {t.home.whySubtitle}
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+              <div className="grid responsive-card-grid gap-8 mt-8">
                 <div className="flex flex-col items-center space-y-2 border rounded-lg p-6 bg-background">
                   <div className="p-2 bg-primary/10 rounded-full">
                     <svg
@@ -112,9 +112,9 @@ export default function Home() {
                       <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold">Premium Properties</h3>
+                  <h3 className="text-xl font-bold">{t.home.premiumTitle}</h3>
                   <p className="text-muted-foreground text-center">
-                    Access to exclusive listings and premium properties in the best locations.
+                    {t.home.premiumText}
                   </p>
                 </div>
                 <div className="flex flex-col items-center space-y-2 border rounded-lg p-6 bg-background">
@@ -137,9 +137,9 @@ export default function Home() {
                       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold">Expert Agents</h3>
+                  <h3 className="text-xl font-bold">{t.home.agentsTitle}</h3>
                   <p className="text-muted-foreground text-center">
-                    Our team of experienced agents will guide you through every step.
+                    {t.home.agentsText}
                   </p>
                 </div>
                 <div className="flex flex-col items-center space-y-2 border rounded-lg p-6 bg-background">
@@ -159,9 +159,9 @@ export default function Home() {
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold">Secure Transactions</h3>
+                  <h3 className="text-xl font-bold">{t.home.secureTitle}</h3>
                   <p className="text-muted-foreground text-center">
-                    Safe and secure property transactions with full legal support.
+                    {t.home.secureText}
                   </p>
                 </div>
               </div>
@@ -176,60 +176,60 @@ export default function Home() {
             <Link href="/" className="flex items-center gap-2">
               <span className="text-xl font-bold">EstateHub</span>
             </Link>
-            <p className="text-sm text-muted-foreground">Your trusted partner in real estate since 2010.</p>
+            <p className="text-sm text-muted-foreground">{t.footer.tagline}</p>
           </div>
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             <div className="space-y-2">
-              <h4 className="font-medium">Company</h4>
+              <h4 className="font-medium">{t.footer.company}</h4>
               <ul className="grid gap-1">
                 <li>
                   <Link href="/about" className="text-sm hover:underline">
-                    About
+                    {t.nav.about}
                   </Link>
                 </li>
                 <li>
                   <Link href="/careers" className="text-sm hover:underline">
-                    Careers
+                    {t.footer.careers}
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact" className="text-sm hover:underline">
-                    Contact
+                    {t.nav.contact}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="space-y-2">
-              <h4 className="font-medium">Properties</h4>
+              <h4 className="font-medium">{t.nav.properties}</h4>
               <ul className="grid gap-1">
                 <li>
                   <Link href="/properties" className="text-sm hover:underline">
-                    All Properties
+                    {t.footer.allProperties}
                   </Link>
                 </li>
                 <li>
                   <Link href="/properties/for-sale" className="text-sm hover:underline">
-                    For Sale
+                    {t.footer.forSale}
                   </Link>
                 </li>
                 <li>
                   <Link href="/properties/for-rent" className="text-sm hover:underline">
-                    For Rent
+                    {t.footer.forRent}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="space-y-2">
-              <h4 className="font-medium">Legal</h4>
+              <h4 className="font-medium">{t.footer.legal}</h4>
               <ul className="grid gap-1">
                 <li>
                   <Link href="/privacy" className="text-sm hover:underline">
-                    Privacy
+                    {t.footer.privacy}
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms" className="text-sm hover:underline">
-                    Terms
+                    {t.footer.terms}
                   </Link>
                 </li>
               </ul>
@@ -238,7 +238,7 @@ export default function Home() {
         </div>
         <div className="border-t py-6">
           <div className="container flex flex-col md:flex-row items-center justify-between gap-4 px-4 md:px-6">
-            <p className="text-sm text-muted-foreground">© 2023 EstateHub. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground">{t.footer.rights}</p>
             <div className="flex items-center gap-4">
               <Link href="#" className="text-muted-foreground hover:text-foreground">
                 <svg
@@ -300,4 +300,3 @@ export default function Home() {
     </div>
   )
 }
-

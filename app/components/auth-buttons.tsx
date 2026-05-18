@@ -1,28 +1,21 @@
-'use client'
+"use client"
 
 import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
+import { useI18n } from "@/lib/i18n"
 
 export default function AuthButtons() {
+  const { t } = useI18n()
+
   return (
     <div className="flex items-center gap-4">
-      {false ? (
-        <>
-          {/* <span className="text-sm">Welcome, {session.user?.name}</span>
-          <Button variant="outline" size="sm" onClick={() => signOut()}>
-            Sign Out
-          </Button> */}
-        </>
-      ) : (
-        <>
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/auth/signin">Sign In</Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link href="/auth/signup">Sign Up</Link>
-          </Button>
-        </>
-      )}
+      <Button variant="outline" size="sm" asChild>
+        <Link href="/auth/signin">{t.nav.signIn}</Link>
+      </Button>
+      <Button size="sm" asChild>
+        <Link href="/auth/signup">{t.nav.signUp}</Link>
+      </Button>
     </div>
   )
-} 
+}

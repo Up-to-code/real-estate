@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
+import { useI18n } from "@/lib/i18n"
 
 interface AuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
   type: "signin" | "signup" | "forgotPassword"
@@ -12,6 +13,7 @@ interface AuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function AuthForm({ className, type, ...props }: AuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const { t } = useI18n()
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault()
@@ -28,7 +30,7 @@ export function AuthForm({ className, type, ...props }: AuthFormProps) {
         <div className="grid gap-4">
           {type !== "forgotPassword" && (
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t.auth.email}</Label>
               <Input
                 id="email"
                 placeholder="name@example.com"
@@ -42,7 +44,7 @@ export function AuthForm({ className, type, ...props }: AuthFormProps) {
           )}
           {type === "forgotPassword" && (
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t.auth.email}</Label>
               <Input
                 id="email"
                 placeholder="name@example.com"
@@ -56,7 +58,7 @@ export function AuthForm({ className, type, ...props }: AuthFormProps) {
           )}
           {type !== "forgotPassword" && (
             <div className="grid gap-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t.auth.password}</Label>
               <Input
                 id="password"
                 type="password"
@@ -68,7 +70,7 @@ export function AuthForm({ className, type, ...props }: AuthFormProps) {
           )}
           {type === "signup" && (
             <div className="grid gap-2">
-              <Label htmlFor="confirm-password">Confirm Password</Label>
+              <Label htmlFor="confirm-password">{t.auth.confirmPassword}</Label>
               <Input
                 id="confirm-password"
                 type="password"
@@ -79,14 +81,13 @@ export function AuthForm({ className, type, ...props }: AuthFormProps) {
             </div>
           )}
           <Button disabled={isLoading}>
-            {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
-            {type === "signin" && "Sign In"}
-            {type === "signup" && "Sign Up"}
-            {type === "forgotPassword" && "Reset Password"}
+            {isLoading && <Icons.spinner className="me-2 h-4 w-4 animate-spin" />}
+            {type === "signin" && t.nav.signIn}
+            {type === "signup" && t.nav.signUp}
+            {type === "forgotPassword" && t.auth.resetPassword}
           </Button>
         </div>
       </form>
     </div>
   )
 }
-
