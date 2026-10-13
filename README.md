@@ -83,4 +83,7 @@ This project is licensed under the MIT License.
 ---
 
 Made with ❤️ by Up-to-code
- 
+
+## Project links
+
+[Source](https://github.com/Up-to-code/real-estate) · [Issues](https://github.com/Up-to-code/real-estate/issues) · [Public project directory](https://github.com/qentrah/.github/blob/main/profile/PROJECTS.md)
